@@ -7,6 +7,7 @@ import {
     runWatchBaseline,
     VerifyTscWatch,
     verifyTscWatch,
+    WatchFactorySystem,
 } from "../tscWatch/helpers";
 import {
     createWatchedSystem,
@@ -135,11 +136,11 @@ describe("unittests:: tsbuildWatch:: watchEnvironment:: tsbuild:: watchMode:: wi
                 {
                     caption: "Change file",
                     edit: sys => sys.appendFile(`/user/username/projects/myproject/b.ts`, "export function foo() { }"),
-                    //     timeouts: sys => sys.checkTimeoutQueueLength(0),
-                    // },
-                    // {
-                    //     caption: "Invoke plugin watches",
-                    //     edit: sys => (sys as WatchFactorySystem).factoryData.watchedFiles.get(`/user/username/projects/myproject/b.ts`)!.forEach(({ callback }) => callback(`/user/username/projects/myproject/b.ts`, ts.FileWatcherEventKind.Changed)),
+                    timeouts: sys => sys.checkTimeoutQueueLength(0),
+                },
+                {
+                    caption: "Invoke plugin watches",
+                    edit: sys => (sys as WatchFactorySystem).factoryData.watchedFiles.get(`/user/username/projects/myproject/b.ts`)!.forEach(({ callback }) => callback(`/user/username/projects/myproject/b.ts`, ts.FileWatcherEventKind.Changed)),
                     timeouts: sys => sys.runQueuedTimeoutCallbacks(),
                 },
             ]
@@ -165,11 +166,11 @@ describe("unittests:: tsbuildWatch:: watchEnvironment:: tsbuild:: watchMode:: wi
                 {
                     caption: "Change file",
                     edit: sys => sys.appendFile(`/user/username/projects/myproject/b.ts`, "export function foo() { }"),
-                    //     timeouts: sys => sys.checkTimeoutQueueLength(0),
-                    // },
-                    // {
-                    //     caption: "Invoke plugin watches",
-                    //     edit: sys => (sys as WatchFactorySystem).factoryData.watchedFiles.get(`/user/username/projects/myproject/b.ts`)!.forEach(({ callback }) => callback(`/user/username/projects/myproject/b.ts`, ts.FileWatcherEventKind.Changed)),
+                    timeouts: sys => sys.checkTimeoutQueueLength(0),
+                },
+                {
+                    caption: "Invoke plugin watches",
+                    edit: sys => (sys as WatchFactorySystem).factoryData.watchedFiles.get(`/user/username/projects/myproject/b.ts`)!.forEach(({ callback }) => callback(`/user/username/projects/myproject/b.ts`, ts.FileWatcherEventKind.Changed)),
                     timeouts: sys => sys.runQueuedTimeoutCallbacks(),
                 },
             ]
@@ -221,11 +222,11 @@ describe("unittests:: tsbuildWatch:: watchEnvironment:: tsbuild:: watchMode:: wi
                 {
                     caption: "Add file",
                     edit: sys => sys.writeFile(`/user/username/projects/myproject/c.ts`, "export function foo() { }"),
-                    //     timeouts: sys => sys.checkTimeoutQueueLength(0),
-                    // },
-                    // {
-                    //     caption: "Invoke plugin watches",
-                    //     edit: sys => (sys as WatchFactorySystem).factoryData.watchedDirectoriesRecursive.get("/user/username/projects/myproject")!.forEach(({ callback }) => callback(`/user/username/projects/myproject/c.ts`)),
+                    timeouts: sys => sys.checkTimeoutQueueLength(0),
+                },
+                {
+                    caption: "Invoke plugin watches",
+                    edit: sys => (sys as WatchFactorySystem).factoryData.watchedDirectoriesRecursive.get("/user/username/projects/myproject")!.forEach(({ callback }) => callback(`/user/username/projects/myproject/c.ts`)),
                     timeouts: sys => sys.runQueuedTimeoutCallbacks(),
                 },
             ]
