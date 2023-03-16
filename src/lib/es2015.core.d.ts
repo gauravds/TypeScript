@@ -67,7 +67,7 @@ interface ArrayConstructor {
 }
 
 interface DateConstructor {
-    new (value: number | string | Date): Date;
+    new(value: number | string | Date): Date;
 }
 
 interface Function {
@@ -244,7 +244,7 @@ interface NumberConstructor {
      * Converts a string to a floating-point number.
      * @param string A string that contains a floating-point number.
      */
-    parseFloat(string: string): number;
+    parseFloat(string: string | number): number;
 
     /**
      * Converts A string to an integer.
@@ -373,7 +373,7 @@ interface RegExp {
 }
 
 interface RegExpConstructor {
-    new (pattern: RegExp | string, flags?: string): RegExp;
+    new(pattern: RegExp | string, flags?: string): RegExp;
     (pattern: RegExp | string, flags?: string): RegExp;
 }
 
@@ -535,5 +535,5 @@ interface StringConstructor {
      * @param template A well-formed template string call site representation.
      * @param substitutions A set of substitution values.
      */
-    raw(template: { raw: readonly string[] | ArrayLike<string>}, ...substitutions: any[]): string;
+    raw(template: { raw: readonly string[] | ArrayLike<string> }, ...substitutions: any[]): string;
 }
